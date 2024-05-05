@@ -1,5 +1,5 @@
 <p align="center">
-    <img style="width:256px;margin:97.7875px" src="/../assets/images/Arma_3_FontToTGA_helper.png?raw=true" alt="Arma 3 FontToTGA_Helper [unofficial]">
+    <img style="width:256px" src="/../assets/images/Arma_3_FontToTGA_helper.png?raw=true" alt="Arma 3 FontToTGA_Helper [unofficial]">
 </p>
 
 ### What is this?
@@ -19,16 +19,8 @@
 ### ***How to use this?***
 
 - download the script.
-- put it anywhere you like.
-- then go to File Explorer (or any other file manager you know), navigate to where you put the script.
-- hold the shift key, and Right-click on an empty space inside the window.
-- click on "Open Powershell window here".
-- in that Powershell window, type this:
-
-  ```
-  ./Arma_3_FontToTGA_helper.ps1
-  ```
-- press the enter key. That will start the script.<br>
+- put it anywhere you like and navigate to where that is.
+- right-click on the file, click on `run with powershell` (applies to Windows 11)
 <br>
 
 The script will guide you through the process and ask all the required information. All you have to do is provide that information accurately and it should result in a successfull conversion from a font into the .TGA file format.
