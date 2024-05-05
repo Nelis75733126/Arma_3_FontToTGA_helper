@@ -64,7 +64,7 @@ Write-Output "    By default, this script will make FontToTGA.exe generate these
 Write-Output ("    {0}" -f ($sizes -join ","))
 Write-Output "        those sizes have been chosen because it is a range of common sizes that can be used in the game."
 Write-Output "            you can choose to go bigger if you want."
-$fontSizeAgreed = Read-Host "    Do you agree with those font size? if yes, press ENTER. otherwise, type n"
+$fontSizeAgreed = Read-Host "    Do you agree with those font sizes? if yes, press ENTER. otherwise, type n"
 if ($fontSizeAgreed -eq "n")
     {
         Write-Output ""
