@@ -1,6 +1,5 @@
 <p align="center">
-    <img style="width:256px;margin:97.7875px" src="/../assets/images/Arma_3_FontToTGA_helper.png?raw=true
-" alt="Arma 3 FontToTGA_Helper [unofficial]">
+    <img style="width:256px;margin:97.7875px" src="/../assets/images/Arma_3_FontToTGA_helper.png?raw=true" alt="Arma 3 FontToTGA_Helper [unofficial]">
 </p>
 
 ### What is this?
