@@ -1,5 +1,5 @@
 # Define array of sizes
-$sizes = @(6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 34, 35, 37, 46)
+$sizes = @(10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 42, 44, 46, 48, 50, 54, 58, 60, 64, 70, 80, 90, 100)
 $cfgStrings = New-Object System.Collections.ArrayList
 $location = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FontToTGA\"
 # Path to the .exe file
@@ -9,6 +9,7 @@ Write-Output "/// --------------------------------------------------------------
 Write-Output "|     THIS IS                                                                 |"
 Write-Output '|         "Arma 3 FontToTga.exe helper"                                       |'
 Write-Output "|         written by: Nelis75733126                                           |"
+Write-Output "|         version number: 0.2                                                 |"
 Write-Output "|         GitHub repository:                                                  |"
 Write-Output "|             https://github.com/Nelis75733126/Arma3_FontToTGA_helper         |"
 Write-Output "\\\ ----------------------------------------------------------------------- ///"
@@ -45,28 +46,47 @@ Write-Output "        - clicking the font you want to convert."
 Write-Output "        - under 'Metadata', use the drop-down box to select the variant, if any."
 Write-Output "        - then read what it says to the right of 'Full name'."
 Write-Output "        - enter that name below. it is case insensitive,"
-Write-Output "            however, your use of capital letters will have effect on the names used in the output location."
+Write-Output "            however, your use of capital letters will have effect on the names used in the output location and in the config."
+Write-Output "            also, if you enter a non-existing font name, FontToTGA.exe defaults to the Arial font."
+Write-Output "            so if FontToTGA.exe generated that instead, it was unable to find the font you provided."
 Write-Output ""
-Write-Output "..."
+Read-Host "press ENTER when ready"
 Write-Output ""
-Read-Host "when ready, press enter to continue"
 Write-Output "--- ok here we go ---"
 $font = Read-Host "     Please enter the full name of the font"
-Write-Output ("    Input accepted. font name given: {0}" -f $font)
+Write-Output ("    Got it. font: {0}" -f $font)
 $fontShort = $font -replace '\s+', ''
 Write-Output "..."
 Write-Output ""
+Write-Output "--- Font sizes ---"
+Write-Output "    By default, this script will make FontToTGA.exe generate these font sizes in pt format:"
+Write-Output ("    {0}" -f ($sizes -join ","))
+Write-Output "        those sizes have been chosen because it is a range of common sizes that can be used in the game."
+Write-Output "            you can choose to go bigger if you want."
+$fontSizeAgreed = Read-Host "    Do you agree with those font size? if yes, press ENTER. otherwise, type n"
+if ($fontSizeAgreed -eq "n")
+    {
+        Write-Output ""
+        Write-Output "    ok. next up: the sizes you desire, provided in this format:"
+        Write-Output "        [number, number, number, number, number, number, number]"
+        Write-Output "        (where number is the alphanumeric size you desire)"
+        $inputSizes = Read-Host "       please enter the font sizes you wish"
+        # Remove the square brackets and split the string into an array
+        $sizes = $inputSizes.TrimStart('[').TrimEnd(']').Split(',') | ForEach-Object { $_.Trim() }
+        Write-Output ("    ....Received: {0}" -f ($sizes -join ","))
+    }
+Write-Output ""
 Write-Output "This script is ready to call upon FontToTga.exe to generate all the textures."
-$doGenerate = Read-Host ("if you wish to only generate a config for the '{0}' font, type n. otherwise, just press enter.'" -f $font)
+$doGenerate = Read-Host ("    Do you want a CfgFontFamilies config for the '{0}' font?, if yes, press ENTER. if no, press n" -f $font)
 if ($doGenerate -eq "n")
     {
-        Write-Output ("    Understood. skipping to generating only the config for '{0}'" -f $font)
-    } else
+        Write-Output ("    Understood. will only generate a config for '{0}'" -f $font)
+    } elseif ($doGenerate -eq "")
         {
             $doGenerate = "y"
             Write-Output "    Allright. calling FontToTga.exe now..."
             Write-Output "..."
-            Start-Sleep -Seconds 2
+            Start-Sleep -Seconds 1
         }
 #Loop through the sizes array
 foreach ($size in $sizes)
@@ -80,29 +100,29 @@ foreach ($size in $sizes)
                 Invoke-Expression $command
             }
     }
+
 if ($doGenerate -eq "y")
     {
         Write-Output ""
         Write-Output "FontToTga.exe seems to be done with the conversion."
         Write-Output "    The .fxy and .tga files for the '$font' font can be found in:"
-        Write-Output ("        {0}Fonts{1}" -f $location, $fontShort)
+        Write-Output ("        {0}Fonts\{1}" -f $location, $fontShort)
         Write-Output "-----------------------------------------------"
         Write-Output "IMPORTANT: It should be noted that those .tga files need to be converted to .paa using the application 'ImageToPAA', which is also available inside Arma 3 Tools."
         Write-Output "-----------------------------------------------"
         Write-Output ""
+        Read-Host "press ENTER to confirm"
     }
 Write-Output "..."
-Start-Sleep -Seconds 2
+Start-Sleep -Seconds 1
 Write-Output ""
 Write-Output ("--- NEXT UP: CfgFontFamilies config entry for '{0}'---" -f $font)
 Start-Sleep -Seconds 1
-Write-Output "    In order to write the correct config,"
-Write-Output "    you must provide the exact name of the addon you are planning to include the font in."
+Write-Output "    In order to write the correct config, you must provide the exact name of the addon you are planning to include the font in."
 Write-Output "    That name will be the so-called 'TAG' given to the addon via its classname in CfgPatches."
-Start-Sleep -Seconds 1
 $addonName = Read-Host "        please provide that name"
 Write-Output "..."
-Start-Sleep -Seconds 2
+Start-Sleep -Seconds 1
 Write-Output "    Generating config..."
 Write-Output "..."
 Start-Sleep -Seconds 1

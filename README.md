@@ -6,6 +6,11 @@
 
 - any installation of Windows that has Powershell installed.
 
+### ***Why use this?***
+- this can generate ANY font size you like
+- this will provide you with a ready-to-use config for `CfgFontFamilies`
+- it is open source. duh! ;)
+
 ### ***How to use this?***
 
 - download the script.
