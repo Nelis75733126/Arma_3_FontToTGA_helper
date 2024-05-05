@@ -160,3 +160,4 @@ Start-Sleep -Seconds 1
 Write-Output "..."
 Write-Output ""
 Write-Output "This script is done. Have a nice day."
+pause
