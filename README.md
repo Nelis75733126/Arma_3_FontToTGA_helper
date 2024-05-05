@@ -1,10 +1,16 @@
-# Arma_3_FontToTGA_helper
+<div style="text-align:center;">
+    <img style="width:256px;margin:97.7875px" src="../../creativityCorner/Inkscape/logos/Arma_3/Arma_3_FontToTGA_helper.png
+" alt="Arma 3 FontToTGA_Helper [unofficial]">
+</div>
+
 ### What is this?
 > A user-friendly Powershell script that can call upon FontToTGA.exe and/or generate a config for use in `CfgFontFamilies`
 
 ### ***Requirements***
 
 - any installation of Windows that has Powershell installed.
+- Arma 3 Tools (https://store.steampowered.com/app/233800/Arma_3_Tools/)
+- Arma 3 (if you want to actually use the result of this script, that is)
 
 ### ***Why use this?***
 - this can generate ANY font size you like
