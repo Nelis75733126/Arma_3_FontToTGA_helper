@@ -9,7 +9,7 @@ Write-Output "/// --------------------------------------------------------------
 Write-Output "|     THIS IS                                                                 |"
 Write-Output '|         "Arma 3 FontToTga.exe helper"                                       |'
 Write-Output "|         written by: Nelis75733126                                           |"
-Write-Output "|         version number: 0.2                                                 |"
+Write-Output "|         version number: 0.2.2                                               |"
 Write-Output "|         GitHub repository:                                                  |"
 Write-Output "|             https://github.com/Nelis75733126/Arma_3_FontToTGA_helper         |"
 Write-Output "\\\ ----------------------------------------------------------------------- ///"
@@ -35,6 +35,7 @@ if ($isPathOK -eq "y")
                 {
                     $location = $location + "\"
                 }
+            Set-Location $location
         }
 Write-Output "..."
 Write-Output ""
