@@ -1,5 +1,5 @@
 <div style="text-align:center;">
-    <img style="width:256px;margin:97.7875px" src="./images/Arma_3_FontToTGA_helper.png
+    <img style="width:256px;margin:97.7875px" src="images/Arma_3_FontToTGA_helper.png
 " alt="Arma 3 FontToTGA_Helper [unofficial]">
 </div>
 
